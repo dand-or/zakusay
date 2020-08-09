@@ -12,7 +12,4 @@
   <ItemGroup>
     <None Remove="LICENSE" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="LICENSE" />
-  </ItemGroup>
 </Project>
