@@ -19,6 +19,7 @@ namespace zakusay
             var words = args.Length > 0 ? args[0] : DateTime.Now.ToString();
             var output = zaku.Replace("replacer", words);
             Console.WriteLine(output);
+            Console.ResetColor();
         }
 
         static private ConsoleColor GetConsoleColor()

@@ -1,3 +1,5 @@
 #!/bin/bash
 
-dotnet publish .. -c Release -r osx-x64 --self-contained true -p:PublishSingleFile=false -p:PublishTrimmed=true
+prjdir=$( cd "$(dirname "${BASH_SOURCE[0]}")"; cd ..; pwd -P )
+
+dotnet publish $prjdir -c Release -r osx-x64 --self-contained true -p:PublishSingleFile=false -p:PublishTrimmed=true
