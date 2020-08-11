@@ -1,24 +1,31 @@
 ﻿using System;
-using System.Threading.Tasks;
+using zakusay.Services;
 
 namespace zakusay
 {
     class Program
     {
-        const string zaku = @"
-\ replacer /
-        ____ 
-      /_|_|__\
-      |__O__||
-     ((([=]))))      
-";
-
         static void Main(string[] args)
         {
+            var words = string.Empty;
+            var isCommander = false;
+            if (args.Length == 0)
+            {
+                words = "zakusay [-s] words";
+            }
+            else if (args.Length == 1)
+            {
+                words = args[0];
+            }
+            else if (args[0] == "-s")
+            {
+                words = args[1];
+                isCommander = true;
+            }
+
             Console.ForegroundColor = GetConsoleColor();
-            var words = args.Length > 0 ? args[0] : DateTime.Now.ToString();
-            var output = zaku.Replace("replacer", words);
-            Console.WriteLine(output);
+            var service = new MobileSuiteService(words, isCommander);
+            service.Do();
             Console.ResetColor();
         }
 

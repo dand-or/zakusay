@@ -8,6 +8,8 @@
   <ItemGroup>
     <Folder Include="scripts\" />
     <Folder Include="etc\" />
+    <Folder Include="Domains\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="LICENSE" />

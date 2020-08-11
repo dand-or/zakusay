@@ -1,11 +1,19 @@
 ﻿# zakusay
 
-```bash
-# ./zakusay 
+```
+$ zakusay "this is ms06"
 
-\ 08/09/2020 14:48:17 /
-        ____ 
+\ this is ms06 /
+        _____
       /_|_|__\
       |__O__||
-     ((([=])))) 
+     ((([=]))))
+
+$ zakusay -s "this is commander"
+
+\ this is commander /
+       _\____
+      /_|\|__\
+      |__@__||
+     ((([=]))))
 ```
