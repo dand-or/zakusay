@@ -1,78 +1,87 @@
 using NUnit.Framework;
-using zakusay.Repositories;
+using zakusay.Domains;
 
 namespace zakusay.test
 {
-    public class MobileSuitArtRepositoryTests
+    public class OperationContextTests
     {
-        const string ZAKU2_DEFAULT = @"\ replacer /
-        _____
-      /_|_|__\
-      |__O__||
-     ((([=]))))";
-
-        const string ZAKU2_COMMANDER = @"\ replacer /
-       _\____
-      /_|\|__\
-      |__@__||
-     ((([=]))))";
-
-        const string DOM_DEFAULT = @"\ replacer /
-      ____
-    _//  \_`.
-   || @) _|| \
-   /(\__//))))\";
-
-        const string DOM_COMMANDER = @"\ replacer /
-      _/__
-    _//  \_`.
-   || O) _|| \
-   /(\__//))))\";
-
-
         [SetUp]
         public void Setup()
         {
         }
 
         [Test]
-        public void GetMobileSuitTemplateTest_Default_Will_Success()
+        public void GetWordTest()
         {
-            var repo = new MobileSuitArtRepository();
-            var template = repo.GetMobileSuitTemplate();
-            Assert.AreEqual(ZAKU2_DEFAULT, template);
+            var expectedWord = "test";
+            var args = new string[1] { expectedWord };
+            var context = new OperationContext(args);
+            Assert.AreEqual(expectedWord, context.GetWord());
         }
 
         [Test]
-        public void GetMobileSuitTemplateTest_Zaku2Default_Will_Success()
+        public void GetOperationModeTest_NORMAL()
         {
-            var repo = new MobileSuitArtRepository();
-            var template = repo.GetMobileSuitTemplate("zaku2");
-            Assert.AreEqual(ZAKU2_DEFAULT, template);
+            var args = new string[1] { "." };
+            var context = new OperationContext(args);
+            Assert.AreEqual(OperationContext.OperationMode.NORMAL, context.GetOperationMode());
         }
 
         [Test]
-        public void GetMobileSuitTemplateTest_Zaku2Commander_Will_Success()
+        public void GetOperationModeTest_LIST()
         {
-            var repo = new MobileSuitArtRepository();
-            var template = repo.GetMobileSuitTemplate("zaku2", true);
-            Assert.AreEqual(ZAKU2_COMMANDER, template);
+            var args = new string[1] { "-l" };
+            var context = new OperationContext(args);
+            Assert.AreEqual(OperationContext.OperationMode.SHOW_LIST, context.GetOperationMode());
+        }
+
+
+        [Test]
+        public void GetOperationModeTest_HELP()
+        {
+            var args = new string[1] { "--help" };
+            var context = new OperationContext(args);
+            Assert.AreEqual(OperationContext.OperationMode.HELP, context.GetOperationMode());
         }
 
         [Test]
-        public void GetMobileSuitTemplateTest_DomDefault_Will_Success()
+        public void GetIsCommanderTest_True()
         {
-            var repo = new MobileSuitArtRepository();
-            var template = repo.GetMobileSuitTemplate("dom");
-            Assert.AreEqual(DOM_DEFAULT, template);
+            var args = new string[2] { "-s", "hoge" };
+            var context = new OperationContext(args);
+            Assert.IsTrue(context.GetIsCommander());
         }
 
         [Test]
-        public void GetMobileSuitTemplateTest_DomCommander_Will_Success()
+        public void GetIsCommanderTest_False()
         {
-            var repo = new MobileSuitArtRepository();
-            var template = repo.GetMobileSuitTemplate("dom", true);
-            Assert.AreEqual(DOM_COMMANDER, template);
+            var args = new string[3] { "-f", "zaku2", "hoge" };
+            var context = new OperationContext(args);
+            Assert.IsFalse(context.GetIsCommander());
+        }
+
+        [Test]
+        public void GetMobileSuitDirNameTest()
+        {
+            var args = new string[3] { "-f", "dom", "hoge" };
+            var context = new OperationContext(args);
+            Assert.AreEqual("dom", context.GetMobileSuitDirName());
+        }
+
+        [Test]
+        public void GetWordTest_MultipleArgs()
+        {
+            var args = new string[3] { "-f", "dom", "hoge" };
+            var context = new OperationContext(args);
+            Assert.AreEqual("hoge", context.GetWord());
+        }
+
+        [Test]
+        public void FolderArgInvalidTest()
+        {
+            var args = new string[1] { "-f" };
+            var context = new OperationContext(args);
+            Assert.AreEqual(OperationContext.OperationMode.HELP, context.GetOperationMode());
         }
     }
 }

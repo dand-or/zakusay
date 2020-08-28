@@ -36,7 +36,7 @@ namespace zakusay.test
         }
 
         [Test]
-        public void GetMobileSuitTemplateTest_Default_Will_Success()
+        public void GetMobileSuitTemplateTest_Default()
         {
             var repo = new MobileSuitArtRepository();
             var template = repo.GetMobileSuitTemplate();
@@ -44,7 +44,7 @@ namespace zakusay.test
         }
 
         [Test]
-        public void GetMobileSuitTemplateTest_Zaku2Default_Will_Success()
+        public void GetMobileSuitTemplateTest_Zaku2Default()
         {
             var repo = new MobileSuitArtRepository();
             var template = repo.GetMobileSuitTemplate("zaku2");
@@ -52,7 +52,7 @@ namespace zakusay.test
         }
 
         [Test]
-        public void GetMobileSuitTemplateTest_Zaku2Commander_Will_Success()
+        public void GetMobileSuitTemplateTest_Zaku2Commander()
         {
             var repo = new MobileSuitArtRepository();
             var template = repo.GetMobileSuitTemplate("zaku2", true);
@@ -60,7 +60,7 @@ namespace zakusay.test
         }
 
         [Test]
-        public void GetMobileSuitTemplateTest_DomDefault_Will_Success()
+        public void GetMobileSuitTemplateTest_DomDefault()
         {
             var repo = new MobileSuitArtRepository();
             var template = repo.GetMobileSuitTemplate("dom");
@@ -68,7 +68,7 @@ namespace zakusay.test
         }
 
         [Test]
-        public void GetMobileSuitTemplateTest_DomCommander_Will_Success()
+        public void GetMobileSuitTemplateTest_DomCommander()
         {
             var repo = new MobileSuitArtRepository();
             var template = repo.GetMobileSuitTemplate("dom", true);
