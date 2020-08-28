@@ -10,8 +10,32 @@
     <Folder Include="etc\" />
     <Folder Include="Domains\" />
     <Folder Include="Services\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Assets\" />
+    <Folder Include="Assets\zaku2\" />
+    <Folder Include="Assets\dom\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="LICENSE" />
+    <None Remove="Assets\zaku2\default.tt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Assets\zaku2\default.cs" />
+    <Compile Remove="Assets\zaku2\default.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\dom\commander">
+      <IncludeInPackage>false</IncludeInPackage>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\dom\default">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\zaku2\commander">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\zaku2\default">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
