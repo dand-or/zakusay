@@ -9,11 +9,11 @@
     <Folder Include="scripts\" />
     <Folder Include="etc\" />
     <Folder Include="Domains\" />
-    <Folder Include="Services\" />
     <Folder Include="Repositories\" />
     <Folder Include="Assets\" />
     <Folder Include="Assets\zaku2\" />
     <Folder Include="Assets\dom\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="LICENSE" />

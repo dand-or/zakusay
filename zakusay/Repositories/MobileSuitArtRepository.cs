@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace zakusay.Repositories
 {
@@ -22,6 +24,10 @@ namespace zakusay.Repositories
             {
                 return sr.ReadToEnd();
             }
+        }
+
+        public List<string> GetMobileSuitList(){
+            return Directory.GetDirectories(ASSETS_PATH).ToList();
         }
     }
 }

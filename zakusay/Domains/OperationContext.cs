@@ -10,6 +10,7 @@ namespace zakusay.Domains
         private const string ARG_HELP = "--help";
         private const string ARG_COMMANDER = "-s";
         private const string ARG_FOLDER = "-f";
+        private const string DEFAULT_FOLDER = "zaku2";
 
         public enum OperationMode
         {
@@ -58,7 +59,8 @@ namespace zakusay.Domains
                 return;
             }
 
-            if (this._args.Any(x => x.Equals(ARG_HELP)))
+            if (this._args.Any(x => x.Equals(ARG_HELP))
+                || this._args.Count() == 0)
             {
                 this._operationMode = OperationMode.HELP;
                 return;
@@ -82,6 +84,10 @@ namespace zakusay.Domains
                     this._operationMode = OperationMode.HELP;
                     return;
                 }
+            }
+            else
+            {
+                this._mobileSuitDirName = DEFAULT_FOLDER;
             }
 
             this._word = this._args.Where(x => x != ARG_LIST)

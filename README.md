@@ -1,4 +1,4 @@
-﻿# [WIP]zakusay
+﻿# zakusay
 
 "zakusay" is an implementation by .NET Core which is a homage to "cowsay".
 
@@ -35,4 +35,14 @@ $ zakusay -f dom hello
     _//  \_`.
    || @) _|| \
    /(\__//))))\
+```
+
+### show mobile suit list
+```
+$ zakusay -l
+```
+
+### show help
+```
+$ zakusay --help
 ```
