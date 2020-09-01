@@ -27,7 +27,8 @@ namespace zakusay.Repositories
         }
 
         public List<string> GetMobileSuitList(){
-            return Directory.GetDirectories(ASSETS_PATH).ToList();
+            var list = Directory.GetDirectories(ASSETS_PATH);
+            return list.Select(x => Path.GetFileName(x)).ToList();
         }
     }
 }

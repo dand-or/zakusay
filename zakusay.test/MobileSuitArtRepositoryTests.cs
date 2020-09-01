@@ -74,5 +74,21 @@ namespace zakusay.test
             var template = repo.GetMobileSuitTemplate("dom", true);
             Assert.AreEqual(DOM_COMMANDER, template);
         }
+
+        [Test]
+        public void GetMobileSuitListTest()
+        {
+            var repo = new MobileSuitArtRepository();
+            var list = repo.GetMobileSuitList();
+            Assert.AreEqual(2, list.Count);
+        }
+
+        [Test]
+        public void GetMobileSuitListTest_ContainsZaku2()
+        {
+            var repo = new MobileSuitArtRepository();
+            var list = repo.GetMobileSuitList();
+            Assert.IsTrue(list.Contains("zaku2"));
+        }
     }
 }
