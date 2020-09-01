@@ -14,7 +14,7 @@ namespace zakusay.Domains
 
         public enum OperationMode
         {
-            NORMAL,
+            SAY,
             SHOW_LIST,
             HELP
         }
@@ -66,7 +66,7 @@ namespace zakusay.Domains
                 return;
             }
 
-            this._operationMode = OperationMode.NORMAL;
+            this._operationMode = OperationMode.SAY;
 
             this._isCommander = this._args.Any(x => x.Equals(ARG_COMMANDER));
 

@@ -19,7 +19,7 @@ namespace zakusay.Repositories
         public string GetMobileSuitTemplate(string dirName = "zaku2", bool isCommander = false)
         {
             var templateFileName = isCommander ? TEMPLATE_NAME_COMMANDER : TEMPLATE_NAME_DEFAULT;
-            var templatePath = Path.Combine(ASSETS_PATH, dirName, templateFileName);
+            var templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ASSETS_PATH, dirName, templateFileName);
             using (var sr = new StreamReader(templatePath, Encoding.GetEncoding("utf-8")))
             {
                 return sr.ReadToEnd();
@@ -27,7 +27,7 @@ namespace zakusay.Repositories
         }
 
         public List<string> GetMobileSuitList(){
-            var list = Directory.GetDirectories(ASSETS_PATH);
+            var list = Directory.GetDirectories(AppDomain.CurrentDomain.BaseDirectory, ASSETS_PATH);
             return list.Select(x => Path.GetFileName(x)).ToList();
         }
     }

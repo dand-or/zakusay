@@ -20,11 +20,11 @@ namespace zakusay.test
         }
 
         [Test]
-        public void GetOperationModeTest_NORMAL()
+        public void GetOperationModeTest_SAY()
         {
             var args = new string[1] { "." };
             var context = new OperationContext(args);
-            Assert.AreEqual(OperationContext.OperationMode.NORMAL, context.GetOperationMode());
+            Assert.AreEqual(OperationContext.OperationMode.SAY, context.GetOperationMode());
         }
 
         [Test]

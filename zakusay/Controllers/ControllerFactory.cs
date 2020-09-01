@@ -8,9 +8,9 @@ namespace zakusay.Controllers
     {
         public static IController CreateController(IOperationContext context)
         {
-            if (context.GetOperationMode() == OperationContext.OperationMode.NORMAL)
+            if (context.GetOperationMode() == OperationContext.OperationMode.SAY)
             {
-                return new NormalController(context, new MobileSuitArtRepository());
+                return new SayController(context, new MobileSuitArtRepository());
             }
             else if (context.GetOperationMode() == OperationContext.OperationMode.SHOW_LIST)
             {
